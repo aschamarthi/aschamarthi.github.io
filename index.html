@@ -98,13 +98,6 @@
   .hero-bio { font-size: 0.97rem; line-height: 1.8; color: #2a2a2a; max-width: 640px; }
   .hero-bio p + p { margin-top: 0.9rem; }
   .hero-photo img { width: 100%; display: block; border: 1px solid var(--border); }
-  .photo-placeholder {
-    width: 200px; height: 250px;
-    background: var(--bg-subtle);
-    border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.75rem; color: var(--light);
-  }
   .contact-bar {
     margin-top: 2rem;
     padding-top: 1.5rem;
@@ -140,6 +133,18 @@
     padding: 0.4rem 0.6rem;
     border-top: 1px solid var(--border);
     background: var(--bg-subtle);
+  }
+  .fig-placeholder {
+    width: 100%;
+    height: 150px;
+    background: var(--bg-subtle);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: var(--light);
+    letter-spacing: 0.05em;
   }
 
   /* PUBLICATIONS */
@@ -248,6 +253,7 @@
     <div class="hero-grid">
       <div>
         <h1 class="hero-name">Sainadh Chamarthi</h1>
+        <!-- FIX 1: "Copmputational" → "Computational" -->
         <div class="hero-title-line">Computational Physics and Aerospace Engineer</div>
         <div class="hero-bio">
           <p>I am a Postdoctoral Scholar at the <a href="https://mce.caltech.edu/">California Institute of Technology</a>, working in the area of computational fluid dynamics with a focus on hypersonic heat transfer and compressible flow simulations.</p>
@@ -255,17 +261,19 @@
           <p>Previously, I was a propulsion engineer at <strong>ISRO</strong>, where I worked on a wide variety of propulsion related problems, and a Postdoc at the <strong>Technion – Israel Institute of Technology</strong>, where I developed high-fidelity numerical methods for compressible flows.</p>
         </div>
         <div class="contact-bar">
-          <span>✉ <a href="/cdn-cgi/l/email-protection#2251434b4c43564a6241434e5647414a0c474657"><span class="__cf_email__" data-cfemail="a3d0c2cacdc2d7cbe3c0c2cfd7c6c0cb8dc6c7d6">[email&#160;protected]</span></a></span>
+          <span>✉ <a href="mailto:sainath@caltech.edu">sainath@caltech.edu</a></span>
           <span>📍 Gates-Thomas Laboratory (44), Caltech</span>
           <span><a href="https://scholar.google.com/citations?user=FzmlT60AAAAJ&hl=en" target="_blank">Google Scholar</a></span>
           <span><a href="https://orcid.org/0000-0003-4407-3159" target="_blank">ORCID</a></span>
           <span><a href="https://mce.caltech.edu/people/amareshwara-sainadh-chamarthi" target="_blank">Caltech Profile</a></span>
+          <!-- FIX 4: Added GitHub -->
+          <span><a href="https://github.com/aschamarthi" target="_blank">GitHub</a></span>
         </div>
       </div>
       <div class="hero-photo">
-<a href="sai_profile.jpg" target="_blank">
-  <img src="sai_profile.jpg" alt="Amareshwara Sainadh Chamarthi">
-</a>
+        <a href="sai_profile.jpg" target="_blank">
+          <img src="sai_profile.jpg" alt="Amareshwara Sainadh Chamarthi">
+        </a>
       </div>
     </div>
   </section>
@@ -299,19 +307,23 @@
       </div>
       <div class="interest-item">
         <figure class="research-fig">
-          <a href="Hall.pdf" target="_blank"><img src="Hall.pdf" alt="Shock-interface interaction"></a>
-          <figcaption>Low temperature plasma </figcaption>
+          <!-- FIX 2: Hall.pdf can't render as img; replaced with placeholder + link -->
+          <a href="Hall.pdf" target="_blank">
+            <div class="fig-placeholder">View figure (PDF)</div>
+          </a>
+          <figcaption>Low temperature plasma</figcaption>
         </figure>
-        <h3>Hall thruster</h3>
-        <p>Low temperature plasmas with anisotropic diﬀusion (typically seen in spacecraft propulsion systems).</p>
+        <h3>Hall Thruster</h3>
+        <p>Low temperature plasmas with anisotropic diffusion, typically seen in spacecraft propulsion systems.</p>
       </div>
       <div class="interest-item">
         <figure class="research-fig">
           <a href="trip.jpg" target="_blank"><img src="trip.jpg" alt="GPU-accelerated CFD"></a>
-          <figcaption>GPU-accelerated solver </figcaption>
+          <figcaption>GPU-accelerated solver</figcaption>
         </figure>
         <h3>High-Performance Computing</h3>
-        <p>Fortran CFD solvers with MPI and OpenACC for GPU architectures.</p>
+        <!-- FIX 4: Added GitHub link in HPC tile -->
+        <p>Fortran CFD solvers with MPI and OpenACC for GPU architectures. Open-source GPU solver: <a href="https://github.com/aschamarthi/WA-CR-Warp" target="_blank">WA-CR-Warp</a>.</p>
       </div>
     </div>
   </section>
@@ -319,7 +331,7 @@
   <section id="publications">
     <div class="section-title">Journal Publications</div>
 
-<div class="pub-year">Under Review</div>
+    <div class="pub-year">Under Review</div>
     <div class="pub-entry">
       <span class="pub-n">—</span>
       <div class="pub-body">
@@ -561,6 +573,8 @@
 
     <div class="subsection-title">Awards &amp; Fellowships</div>
     <ul class="awards-list">
+      <!-- FIX 3: Added Technion excellence fellowship -->
+      <li>Academic Excellence Postdoctoral Fellowship, Technion – Israel Institute of Technology</li>
       <li>Japanese Government Scholarship (MEXT), University of Tokyo</li>
       <li>MHRD Scholarship by the Government of India, IIT Bombay</li>
     </ul>
@@ -571,10 +585,25 @@
     <div class="contact-grid">
       <div>
         <div class="contact-label"></div>
-        <p style="font-size:0.88rem; color:var(--muted); line-height:1.7;">Happy to talk about research collaborations, seminars, and positions in computational fluid dynamics, physics-informed simulations.</p>
+        <p style="font-size:0.88rem; color:var(--muted); line-height:1.7;">Happy to talk about research collaborations, seminars, and positions in computational fluid dynamics and physics-informed simulations.</p>
       </div>
       <div>
         <div class="contact-label">Links</div>
-        <a href="/cdn-cgi/l/email-protection#4a392b23242b3e220a292b263e2f2922642f2e3f"><span class="__cf_email__" data-cfemail="87f4e6eee9e6f3efc7e4e6ebf3e2e4efa9e2e3f2">[email&#160;protected]</span></a>
+        <a href="mailto:sainath@caltech.edu">sainath@caltech.edu</a>
         <a href="https://scholar.google.com/citations?user=FzmlT60AAAAJ&hl=en" target="_blank">Google Scholar</a>
-        <
+        <a href="https://orcid.org/0000-0003-4407-3159" target="_blank">ORCID</a>
+        <!-- FIX 4: GitHub added to contact links -->
+        <a href="https://github.com/aschamarthi" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <span>Amareshwara Sainadh Chamarthi</span>
+  <span>Caltech &middot; Pasadena, CA</span>
+</footer>
+
+</body>
+</html>
