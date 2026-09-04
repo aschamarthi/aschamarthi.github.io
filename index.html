@@ -125,6 +125,7 @@
   .research-fig a img { cursor: pointer; }
   .research-fig { margin: 0 0 1rem 0; border: 1px solid var(--border); }
   .research-fig img { width: 100%; height: 150px; object-fit: cover; display: block; }
+  .research-fig img.hall-preview { object-fit: contain; background: #fff; }
   .research-fig figcaption {
     font-size: 0.68rem;
     letter-spacing: 0.06em;
@@ -309,7 +310,7 @@
         <figure class="research-fig">
           <!-- FIX 2: Hall.pdf can't render as img; replaced with placeholder + link -->
           <a href="Hall.pdf" target="_blank">
-            <div class="fig-placeholder">View figure (PDF)</div>
+            <img src="Hall.png" alt="Hall thruster plasma-flow streamlines" class="hall-preview">
           </a>
           <figcaption>Low temperature plasma</figcaption>
         </figure>
