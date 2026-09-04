@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The research progression of Amareshwara Sainadh Chamarthi, from early work on anisotropic transport to current physics-consistent, high-performance CFD.">
+  <title>Research | Sainadh Chamarthi</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header"><div class="nav-shell">
+    <a class="brand" href="index.html">Sainadh Chamarthi</a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a><a href="research.html" aria-current="page">Research</a><a href="publications.html">Publications</a><a href="presentations.html">Presentations</a><a href="background.html">Background</a><a class="nav-cv" href="assets/Sainath_Chamarthi_CV.pdf">CV</a>
+    </nav>
+  </div></header>
+
+  <main id="main">
+    <section class="page-hero research-page-hero"><div class="container research-hero-grid">
+      <div>
+        <p class="eyebrow">Research</p>
+        <h1>Numerical methods for high-speed compressible flows</h1>
+      </div>
+      <p class="research-hero-summary">My current research develops high-order numerical methods that exploit the mathematical and characteristic structure of the compressible-flow governing equations. Across shock-dominated, turbulent, multicomponent, multiphase, and real-gas regimes, the objective is to control numerical dissipation, preserve physically distinct wave families, and translate these advances into robust GPU-accelerated solvers.</p>
+    </div></section>
+
+    <section class="section"><div class="container research-story">
+      <article class="research-chapter">
+        <div class="chapter-index">01</div>
+        <div class="chapter-grid">
+          <div class="chapter-copy">
+            <p class="section-kicker">A reusable numerical framework</p>
+            <h2>Gradient-Based Reconstruction for Compressible Flow Simulation</h2>
+            <p>The next stage developed Gradient-Based Reconstruction for compressible flow. Derivative information is used to reconstruct flow variables accurately, while the same gradients can be shared between inviscid and viscous flux calculations.</p>
+            <p>This creates a compact, modular route to high-order Navier–Stokes solvers. The framework was applied to single-component and multicomponent problems containing shocks and turbulent features, and was competitive with established WENO-family approaches while reducing reconstruction cost.</p>
+            <p class="representative"><strong>Representative work:</strong> <a href="https://www.sciencedirect.com/science/article/abs/pii/S0045793022002997">Gradient Based Reconstruction</a> (Computers &amp; Fluids, 2023); <a href="https://www.sciencedirect.com/science/article/abs/pii/S0021999123002140">Efficient High-Order Gradient-Based Reconstruction</a> (JCP, 2023).</p>
+          </div>
+          <figure class="chapter-figure"><img src="assets/gradient-reuse.png" alt="Diagram showing reuse of gradients in compressible-flow reconstruction"><figcaption>A shared-gradient strategy connects reconstruction with inviscid and viscous flux evaluation.</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="research-chapter">
+        <div class="chapter-index">02</div>
+        <div class="chapter-grid full-width">
+          <div class="chapter-copy">
+            <p class="section-kicker">Stability beyond formal order</p>
+            <h2>Importance of Viscous Flux Discretization</h2>
+            <p>Viscous discretization is often overshadowed by inviscid shock-capturing design. My work showed that its spectral properties—especially high-frequency damping—can control stability and accuracy on marginally resolved grids.</p>
+            <p>This explains why nominally high-order operators may still perform poorly for shocks, turbulence, and under-resolved structures, while differently designed operators with favorable spectral behavior can be more reliable. The result is a practical design basis for viscous fluxes in high-speed turbulent-flow solvers.</p>
+            <p class="representative"><strong>Representative work:</strong> <a href="https://doi.org/10.1016/j.jcp.2022.111195">On the Importance of High-Frequency Damping…</a> (JCP, 2022); <a href="https://doi.org/10.1016/j.compfluid.2022.105742">On the Role of Spectral Properties…</a> (Computers &amp; Fluids, 2023).</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="research-chapter">
+        <div class="chapter-index">03</div>
+        <div class="chapter-grid full-width">
+          <div class="chapter-copy">
+            <p class="section-kicker">Treating waves by their physics</p>
+            <h2>Wave-Appropriate Methods for High-Speed Compressible Flows</h2>
+            <p>Wave-appropriate methods use the characteristic structure of the Euler equations to distinguish acoustic, entropy, and vortical waves. Instead of applying one reconstruction strategy to every feature, the method assigns dissipation and reconstruction according to each wave family’s physical behavior.</p>
+            <p>This reduces avoidable damping of smooth vortical and turbulent structures while maintaining stability near shocks and contacts. In wall-modeled large-eddy simulation, the approach enabled coarse-grid prediction of hypersonic boundary-layer transition and key skin-friction and heat-transfer trends.</p>
+            <p class="representative"><strong>Representative work:</strong> <a href="https://doi.org/10.1063/5.0149314">A Wave Appropriate Discontinuity Sensor Approach</a> (Physics of Fluids, 2023); <a href="https://doi.org/10.1016/j.jcp.2024.113128">Centralized Gradient-Based Reconstruction for WMLES…</a> (JCP, 2024); <a href="https://doi.org/10.1016/j.jcp.2026.115244">Physics-Constrained Acoustic Dissipation and Rank-1 Entropy Wave Correction</a> (JCP, 2026).</p>
+          </div>
+          <figure class="chapter-figure sequence"><img src="assets/wave-appropriate.png" alt="Wave-appropriate treatment of compressible-flow features"><figcaption>Different physical waves receive different numerical treatment rather than uniform dissipation.</figcaption></figure>
+        </div>
+      </article>
+
+      <figure class="story-feature">
+        <img src="assets/wave-evolution-sequence.png" alt="Fifteen-panel time sequence showing the evolution of waves and vortical structures in a high-speed flow simulation from 100 to 1500 microseconds">
+        <figcaption>Droplet collision: time-resolved evolution of wave fronts and vortical structures, from 100 to 1500 microseconds.</figcaption>
+      </figure>
+
+      <article class="research-chapter">
+        <div class="chapter-index">04</div>
+        <div class="chapter-grid full-width">
+          <div class="chapter-copy">
+            <p class="section-kicker">From single fluids to material interfaces</p>
+            <h2>Physics-Consistent Reconstruction for Multicomponent and Multiphase Flows</h2>
+            <p>At Caltech, I extended physics-consistent reconstruction to viscous compressible multicomponent and multiphase flows. These systems combine shocks, material interfaces, contacts, and vortical structures—features that require distinct numerical treatment.</p>
+            <p>The resulting algorithms apply interface-capturing reconstruction only to variables and wave families for which it is physically appropriate, while central or low-dissipation reconstruction protects continuous tangential velocity and vortical content. This suppresses spurious artifacts while preserving sharp interfaces on relatively coarse grids.</p>
+            <p class="representative"><strong>Representative work:</strong> <a href="https://doi.org/10.1016/j.jcp.2025.114157">Wave-Appropriate Multidimensional Upwinding…</a> (JCP, 2025); <a href="https://doi.org/10.1016/j.compfluid.2025.106858">Physics Appropriate Interface Capturing Reconstruction…</a> (Computers &amp; Fluids, 2025); <a href="https://doi.org/10.1016/j.jcp.2026.115314">Fully Conservative and Semi-Conservative Eigenstructures</a> (JCP, 2026).</p>
+          </div>
+          <figure class="chapter-figure sequence"><img src="assets/multiphase-shock-sequence.png" alt="Four-stage numerical sequence showing shock interaction with and deformation of a water interface"><figcaption>Time evolution of a shock interaction with a water interface, emphasizing interface deformation and the surrounding wave system.</figcaption></figure>
+          <figure class="chapter-figure solver-video multiphase-video">
+            <video controls muted loop playsinline preload="metadata" poster="assets/multiple-droplet-poster.jpg" aria-label="Numerical animation of shock interaction with multiple droplets">
+              <source src="assets/multiple-droplet-interaction.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <figcaption>Shock interaction with multiple droplets, showing the time evolution of transmitted and reflected waves and interface deformation.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="research-chapter">
+        <div class="chapter-index">05</div>
+        <div class="chapter-grid full-width">
+          <div class="chapter-copy">
+            <p class="section-kicker">From algorithms to usable tools</p>
+            <h2>High-Performance Solver Development and Research Translation</h2>
+            <p>The final stage translates the numerical research into working CFD software. My experience includes Fortran solvers using MPI and OpenACC as well as GPU-accelerated implementations in NVIDIA Warp.</p>
+            <p>The open-source WA-CR-Warp solver implements wave-appropriate reconstruction for three-dimensional compressible flow and has been exercised on large benchmark problems using NVIDIA A100 hardware. The software closes the loop from mathematical design to the performance, stability, and robustness demands of practical computational physics.</p>
+            <p class="representative"><strong>Open-source software:</strong> <a href="https://github.com/aschamarthi/WA-CR-Warp">WA-CR-Warp on GitHub</a>.</p>
+          </div>
+          <div class="solver-gallery" aria-label="High-performance solver results">
+            <figure><img src="assets/solver-wavefield.png" alt="Shock interaction with an initially elliptical droplet at 100 microseconds, including interface deformation and the surrounding wave and vortical structures"><figcaption>Shock interaction with an initially elliptical droplet at 100 microseconds, showing interface deformation and the coupled evolution of wave and vortical structures.</figcaption></figure>
+            <figure><img src="assets/solver-multibody.png" alt="Shock interaction with multiple droplets, showing interface deformation and coupled wave systems"><figcaption>Shock interaction with multiple droplets, showing coupled wave transmission, interface deformation, and wake development.</figcaption></figure>
+            <figure class="gallery-wide"><img src="assets/solver-vorticity.png" alt="Mach 6 shock interaction with multiple gas bubbles, with highlighted vortical regions and complex wave structures"><figcaption>Mach 6 shock interaction with multiple gas bubbles, highlighting interface deformation, vortex formation, and the surrounding system of interacting waves.</figcaption></figure>
+          </div>
+        </div>
+      </article>
+    </div></section>
+
+    <section class="section alt previous-projects"><div class="container">
+      <div class="section-head">
+        <p class="section-kicker">Previous projects</p>
+        <div>
+          <h2>Hyperbolic and High-Order Methods for Magnetized Plasma and Anisotropic Diffusion</h2>
+          <p class="section-intro">My doctoral research addressed low-temperature magnetized plasma flows for Hall thrusters and spacecraft propulsion. In these systems, electron transport is strongly anisotropic, and the numerical problem becomes especially difficult when a computational grid is not aligned with the magnetic field.</p>
+          <p class="section-intro">I developed high-order upwind and non-oscillatory methods for steady diffusion and advection–diffusion, together with a first-order hyperbolic formulation for anisotropic diffusion. The hyperbolic approach offered a robust alternative to conventional elliptic treatment under severe anisotropy and grid misalignment.</p>
+          <p class="representative"><strong>Representative work:</strong> <a href="https://doi.org/10.1016/j.jcp.2019.06.064">First Order Hyperbolic Approach for Anisotropic Diffusion Equation</a> (JCP, 2019); <a href="https://doi.org/10.1016/j.jcp.2018.08.018">High-Order Upwind and Non-Oscillatory Approach…</a> (JCP, 2018).</p>
+        </div>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="container resource-strip">
+      <p class="section-kicker">Further information</p>
+      <div class="resource-links"><a href="publications.html">Publications →</a><a href="assets/Sainath_Chamarthi_CV.pdf">Curriculum vitae →</a><a href="mailto:sainath@caltech.edu">Contact →</a></div>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-grid"><span>© Amareshwara Sainadh Chamarthi</span><span>Caltech · Pasadena, California</span></div></footer>
+</body>
+</html>
