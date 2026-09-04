@@ -387,8 +387,10 @@ h1 {
 .flow-video figcaption { padding: 0.7rem 0.9rem; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 0.78rem; line-height: 1.5; }
 
 .publication-list { display: grid; gap: 2.7rem; }
+.publication-section-title { margin: 0; font-size: clamp(1.65rem, 3vw, 2.35rem); }
 .publication-year h2 { margin: 0 0 1rem; padding-bottom: 0.6rem; border-bottom: 2px solid var(--navy); font-size: 1.8rem; }
 .publication-entry { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.conference-entry { grid-template-columns: minmax(0, 1fr); }
 .publication-entry:last-child { border-bottom: 0; }
 .pub-number { color: var(--orange-dark); font-family: Georgia, serif; font-size: 1rem; font-weight: 700; }
 .publication-title { color: var(--ink); font-family: Georgia, serif; font-size: 1.05rem; font-weight: 700; text-decoration: none; }
