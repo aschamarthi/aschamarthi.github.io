@@ -343,6 +343,8 @@ h1 {
 .multiphase-video video { aspect-ratio: 3 / 2; background: white; }
 .moving-body-video { margin-top: 1rem; }
 .moving-body-video video { aspect-ratio: 5 / 1; background: var(--paper); }
+.oscillating-body-video { margin-top: 1rem; }
+.oscillating-body-video video { background: white; }
 
 .solver-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .solver-gallery figure { overflow: hidden; margin: 0; border: 1px solid var(--line); border-radius: 14px; background: white; }
